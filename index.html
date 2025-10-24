@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/header.css" />
+    <link rel="stylesheet" href="styles/products.css" />
+    <link rel="stylesheet" href="styles/card.css" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="container">
+        <div class="nav__content">
+          <div class="nav__logo">
+            <img src="/assets/shofi-logo.svg" alt="" />
+          </div>
+          <div class="nav__search-container">
+            <input
+              class="nav__search"
+              type="text"
+              placeholder="Search products"
+            />
+            <button class="nav__search-button">Search</button>
+          </div>
+          <div class="nav__links">Login</div>
+        </div>
+      </div>
+    </nav>
+
+    <main class="page">
+      <div class="container">
+        <section class="page__products js-page__products">
+          <!-- <div class="product__card">
+            <div class="product__card-content">
+              <div class="product__card-image">
+                <img src="/assets/images/psp-poduct.png" alt="" />
+              </div>
+              <div class="product__card-details">
+                <p class="product__card-title">ORIGINAL PSP 3000 SLIM...</p>
+                <p class="product__card-price">₱5,800.00</p>
+              </div>
+            </div>
+          </div> -->
+        </section>
+      </div>
+    </main>
+
+    <script>
+      const url = "https://fakestoreapi.com/products";
+
+      async function getProducts() {
+        const response = await fetch(url);
+        const data = await response.json();
+
+        renderProducts(data);
+        console.log(data);
+      }
+
+      function renderProducts(products) {
+        const productGrid = document.querySelector(".js-page__products");
+        let html = "";
+
+        products.forEach((product) => {
+          html += ` 
+          <div class="product__card">
+            <div class="product__card-content">
+              <div class="product__card-image">
+                <img src="${product.image}" alt="" />
+              </div>
+              <div class="product__card-details">
+                <p class="product__card-title">${product.title}</p>
+                <p class="product__card-price">$${product.price}</p>
+              </div>
+            </div>
+          </div>
+          `;
+        });
+
+        productGrid.innerHTML = html;
+      }
+
+      getProducts();
+    </script>
+  </body>
+</html>
