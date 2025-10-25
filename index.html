@@ -4,6 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Quicksand:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="styles/header.css" />
     <link rel="stylesheet" href="styles/products.css" />
     <link rel="stylesheet" href="styles/card.css" />
@@ -72,6 +79,11 @@
               <div class="product__card-details">
                 <p class="product__card-title">${product.title}</p>
                 <p class="product__card-price">$${product.price}</p>
+                <div class="product__card-rating">
+                  <img src="/assets/star.svg" />
+                  <p>${product.rating.rate}</p>
+                  <p>(${product.rating.count})</p>
+                </div>
               </div>
             </div>
           </div>
