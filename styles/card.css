@@ -39,19 +39,20 @@
   overflow: hidden;
   overflow-wrap: break-word;
   word-wrap: break-word;
-  line-height: 1.2rem;
+  line-height: 1.5rem;
   min-height: 2.4rem;
+  font-size: clamp(1rem, 6vw, 1.3rem);
 }
 
 .product__card-price {
   color: #ff4b4b;
   font-weight: 500;
-  font-size: clamp(18px, 2vw, 20px);
+  font-size: clamp(25px, 5vw, 20px);
   margin: 0;
 }
 
 .product__card-rating {
-  width: clamp(20px, 5vw, 35px);
+  width: clamp(20px, 10vw, 35px);
   display: flex;
   gap: 0.3rem;
   align-items: center;
@@ -64,5 +65,5 @@
 
 .product__card-rating p {
   margin: 0;
-  font-size: clamp(0.9rem, 2vw, 0.75rem);
+  font-size: clamp(0.9rem, 7vw, 0.75rem);
 }
