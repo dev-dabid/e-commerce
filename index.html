@@ -33,6 +33,7 @@
           </div>
           <div class="nav__links">Login</div>
         </div>
+        <div class="nav__filters js-nav__filters"></div>
       </div>
     </nav>
 
@@ -62,15 +63,29 @@
         const data = await response.json();
 
         renderProducts(data);
+        filterProducts(data);
         console.log(data);
       }
 
       function renderProducts(products) {
         const productGrid = document.querySelector(".js-page__products");
-        let html = "";
+        const productFilters = document.querySelector(".js-nav__filters");
+        let htmlFilters = "";
+        let htmlProducts = "";
+
+        const catObj = {};
+
+        for (let categories of products) {
+          if (!catObj[categories.category]) {
+            htmlFilters += `<button>${categories.category}</button>`;
+          }
+
+          catObj[categories.category] = (catObj[categories.category] || 0) + 1;
+        }
 
         products.forEach((product) => {
-          html += ` 
+          if (product.category === "jewelery") {
+            htmlProducts += `
           <div class="product__card">
             <div class="product__card-content">
               <div class="product__card-image">
@@ -88,9 +103,30 @@
             </div>
           </div>
           `;
+          }
         });
 
-        productGrid.innerHTML = html;
+        productFilters.innerHTML = htmlFilters;
+        productGrid.innerHTML = htmlProducts;
+      }
+
+      // write a function that filters product
+
+      // input object property category
+      // output rendered product corresponding to category
+
+      // product.category.jewelery = jewelry products
+
+      // let filtered = product.category.jewelery;
+
+      // if filtered is jewelry, filter only products that is category jewelry.
+
+      // [men's clothing] [women's clothing] [jewelery] [electronics]
+
+      function filterProducts(categories) {
+        categories.forEach((cat) => {
+          console.log(cat.category);
+        });
       }
 
       getProducts();
