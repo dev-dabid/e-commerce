@@ -22,7 +22,15 @@ export function createProductCard(product) {
   return card;
 }
 
-export function renderCategories(products, container) {}
+export function renderCategories(products, container) {
+  let htmlCategory = "";
+
+  Object.keys(products).forEach((category) => {
+    htmlCategory += `<p>${category}</p>`;
+  });
+
+  container.innerHTML = htmlCategory;
+}
 
 export function renderProducts(products, container) {
   container.innerHTML = "";

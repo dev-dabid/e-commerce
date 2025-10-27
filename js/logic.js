@@ -8,7 +8,7 @@ export function getUniqueCategories(products) {
   const catObj = {};
 
   products.forEach((product) => {
-    catObj[product] = true;
+    catObj[product.category] = true;
   });
 
   return catObj;

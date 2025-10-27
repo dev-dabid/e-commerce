@@ -1,16 +1,22 @@
 import state from "./state.js";
-import { getProducts } from "./logic.js";
-import { renderProducts } from "./ui.js";
+import { getProducts, getUniqueCategories } from "./logic.js";
+import { renderProducts, renderCategories } from "./ui.js";
 
 const url = "https://fakestoreapi.com/products";
 
+const navFilter = document.querySelector(".js-nav__filters");
 const pageProducts = document.querySelector(".js-page__products");
 
 async function initProducts() {
-  const allProducts = await getProducts(url);
-  state.products = allProducts;
+  try {
+    const allProducts = await getProducts(url);
+    state.products = allProducts;
 
-  renderProducts(state.products, pageProducts);
+    renderCategories(getUniqueCategories(state.products), navFilter);
+    renderProducts(state.products, pageProducts);
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 initProducts();
