@@ -61,18 +61,10 @@
       let allProducts = [];
 
       async function getProducts() {
-        try {
-          const response = await fetch(url);
-
-          if (!response.ok) {
-            throw new Error(`HTTP error! Status ${response.status}`);
-          }
-
-          const data = await response.json();
-          allProducts = data;
-        } catch (error) {
-          console.log(error);
-        }
+        const response = await fetch(url);
+        if (!response.ok)
+          throw new Error(`HTTP error! Status ${response.status}`);
+        return response.json();
       }
 
       function renderProducts(products) {
@@ -117,7 +109,8 @@
       }
 
       async function initProducts() {
-        await getProducts();
+        const products = await getProducts();
+        allProducts = products;
         renderProducts(allProducts);
       }
 
