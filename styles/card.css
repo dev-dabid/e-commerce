@@ -7,7 +7,7 @@
   width: 100%;
   overflow: hidden;
   border-radius: 5px;
-  padding: clamp(0.5rem, 2vw, 1rem);
+  padding: clamp(0.9rem, 2vw, 1rem);
 }
 
 .product__card-image {
