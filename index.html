@@ -59,6 +59,7 @@
       const url = "https://fakestoreapi.com/products";
 
       let allProducts = [];
+      let filter = "";
 
       async function getProducts() {
         const response = await fetch(url);
@@ -67,12 +68,9 @@
         return response.json();
       }
 
-      function renderProducts(products) {
-        const productGrid = document.querySelector(".js-page__products");
+      function renderCategories(products) {
         const productFilters = document.querySelector(".js-nav__filters");
         let htmlFilters = "";
-        let htmlProducts = "";
-
         const catObj = {};
 
         for (let categories of products) {
@@ -82,6 +80,14 @@
 
           catObj[categories.category] = (catObj[categories.category] || 0) + 1;
         }
+
+        productFilters.innerHTML = htmlFilters;
+      }
+
+      function renderProducts(products) {
+        const productGrid = document.querySelector(".js-page__products");
+
+        let htmlProducts = "";
 
         products.forEach((product) => {
           htmlProducts += `
@@ -104,14 +110,51 @@
            `;
         });
 
-        productFilters.innerHTML = htmlFilters;
         productGrid.innerHTML = htmlProducts;
+      }
+
+      // write a function that filters product by their categories
+
+      // input product object
+      // render filtered product
+
+      // let category = "jewelery"
+
+      // if the product category is not true, skip that product otherwise render that product
+
+      function filterProducts() {
+        const navCategory = document.querySelector(".js-nav__filters");
+
+        let filteredProduct = [];
+
+        navCategory.addEventListener("click", (e) => {
+          document.querySelector(".js-page__products").innerHTML = "";
+
+          if (e.target.classList.contains("js-nav__category")) {
+            filter = e.target.innerText;
+
+            filteredProduct = [];
+
+            allProducts.forEach((product) => {
+              if (product.category === filter) {
+                filteredProduct.push(product);
+              }
+            });
+
+            console.log(filteredProduct);
+
+            renderProducts(filteredProduct);
+          }
+        });
       }
 
       async function initProducts() {
         const products = await getProducts();
         allProducts = products;
+
+        renderCategories(allProducts);
         renderProducts(allProducts);
+        filterProducts();
       }
 
       initProducts();
