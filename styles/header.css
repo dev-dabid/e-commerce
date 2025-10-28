@@ -13,7 +13,7 @@
 
 .nav__logo {
   display: none;
-  width: clamp(5rem, 4vw, 4rem);
+  width: clamp(5rem, 10vw, 10rem);
 }
 
 .nav__logo img {
