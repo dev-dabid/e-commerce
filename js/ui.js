@@ -26,10 +26,19 @@ export function renderCategories(products, container) {
   let htmlCategory = "";
 
   Object.keys(products).forEach((category) => {
-    htmlCategory += `<p>${category}</p>`;
+    htmlCategory += `<button>${category}</button>`;
   });
 
   container.innerHTML = htmlCategory;
+}
+
+export function setUpCategoryEvents(container, callback) {
+  container.addEventListener("click", (e) => {
+    if (e.target.tagName === "BUTTON") {
+      const category = e.target.innerText;
+      callback(category);
+    }
+  });
 }
 
 export function renderProducts(products, container) {

@@ -1,6 +1,6 @@
 import state from "./state.js";
-import { getProducts, getUniqueCategories } from "./logic.js";
-import { renderProducts, renderCategories } from "./ui.js";
+import { getProducts, getUniqueCategories, filterByCategory } from "./logic.js";
+import { renderProducts, renderCategories, setUpCategoryEvents } from "./ui.js";
 
 const url = "https://fakestoreapi.com/products";
 
@@ -13,6 +13,10 @@ async function initProducts() {
     state.products = allProducts;
 
     renderCategories(getUniqueCategories(state.products), navFilter);
+    setUpCategoryEvents(navFilter, (category) => {
+      state.filteredProducts = [];
+      state.filteredProducts = filterByCategory(state.products, category);
+    });
     renderProducts(state.products, pageProducts);
   } catch (error) {
     console.error(error);
