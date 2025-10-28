@@ -25,30 +25,3 @@ async function initProducts() {
 }
 
 initProducts();
-
-// function filterProducts() {
-//   const navCategory = document.querySelector(".js-nav__filters");
-
-//   let filter = "";
-//   let filteredProduct = [];
-
-//   navCategory.addEventListener("click", (e) => {
-//     document.querySelector(".js-page__products").innerHTML = "";
-
-//     if (e.target.classList.contains("js-nav__category")) {
-//       filter = e.target.innerText;
-
-//       filteredProduct = [];
-
-//       allProducts.forEach((product) => {
-//         if (product.category === filter) {
-//           filteredProduct.push(product);
-//         }
-//       });
-
-//       console.log(filteredProduct);
-
-//       renderProducts(filteredProduct);
-//     }
-//   });
-// }
