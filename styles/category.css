@@ -1,5 +1,5 @@
 .nav__filters {
-  display: flex;
+  display: none;
   width: 100%;
   gap: 1rem;
 }
@@ -14,4 +14,10 @@
   font-weight: 600;
   letter-spacing: 0.05rem;
   box-shadow: 3px 3px black;
+}
+
+@media (min-width: 768px) {
+  .nav__filters {
+    display: flex;
+  }
 }
