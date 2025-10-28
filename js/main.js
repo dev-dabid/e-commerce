@@ -16,6 +16,8 @@ async function initProducts() {
     setUpCategoryEvents(navFilter, (category) => {
       state.filteredProducts = [];
       state.filteredProducts = filterByCategory(state.products, category);
+
+      renderProducts(state.filteredProducts, pageProducts);
     });
     renderProducts(state.products, pageProducts);
   } catch (error) {
