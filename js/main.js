@@ -14,7 +14,6 @@ async function initProducts() {
 
     renderCategories(getUniqueCategories(state.products), navFilter);
     setUpCategoryEvents(navFilter, (category) => {
-      state.filteredProducts = [];
       state.filteredProducts = filterByCategory(state.products, category);
 
       renderProducts(state.filteredProducts, pageProducts);
