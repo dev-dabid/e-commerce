@@ -26,7 +26,7 @@ export function renderCategories(products, container) {
   let htmlCategory = "";
 
   Object.keys(products).forEach((category) => {
-    htmlCategory += `<button>${category}</button>`;
+    htmlCategory += `<button class="nav__category-button">${category}</button>`;
   });
 
   container.innerHTML = htmlCategory;

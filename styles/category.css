@@ -1,0 +1,17 @@
+.nav__filters {
+  display: flex;
+  width: 100%;
+  gap: 1rem;
+}
+
+.nav__category-button {
+  background-color: #ff4b4b;
+  border-radius: 5px;
+  padding: clamp(0.1rem, 2vw, 0.5rem);
+  border-style: none;
+  color: white;
+  font-size: clamp(0.75rem, 2vw, 1.1rem);
+  font-weight: 600;
+  letter-spacing: 0.05rem;
+  box-shadow: 3px 3px black;
+}
