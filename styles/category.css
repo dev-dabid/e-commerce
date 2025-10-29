@@ -16,7 +16,7 @@
   box-shadow: 3px 3px black;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .nav__filters {
     display: flex;
   }
