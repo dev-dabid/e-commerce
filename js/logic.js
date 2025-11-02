@@ -42,3 +42,13 @@ export function addToCart(id, cart) {
 
   console.log(cart);
 }
+
+export function countCartItems(cart) {
+  let itemsCount = 0;
+
+  cart.forEach((item) => {
+    itemsCount += item.quantity;
+  });
+
+  return itemsCount;
+}

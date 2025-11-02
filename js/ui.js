@@ -56,11 +56,24 @@ export function renderProducts(products, container) {
   container.appendChild(htmlProducts);
 }
 
-export function setUpAddToCartEvents(container, cart, callback) {
+export function setUpAddToCartEvents(
+  container,
+  cart,
+  callback1,
+  callback2,
+  callback3
+) {
   container.addEventListener("click", (e) => {
     if (e.target.classList.contains("js-product__card-btn")) {
       const productId = e.target.dataset.productId;
-      callback(productId, cart);
+      callback1(productId, cart);
+      callback2(callback3, cart);
     }
   });
+}
+
+export function updateCartCount(callback, cart) {
+  const countUi = document.querySelector(".js-nav__links-cart-count");
+
+  countUi.innerText = callback(cart);
 }

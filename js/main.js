@@ -4,12 +4,14 @@ import {
   getUniqueCategories,
   filterByCategory,
   addToCart,
+  countCartItems,
 } from "./logic.js";
 import {
   renderProducts,
   renderCategories,
   setUpCategoryEvents,
   setUpAddToCartEvents,
+  updateCartCount,
 } from "./ui.js";
 
 const url = "https://fakestoreapi.com/products";
@@ -31,7 +33,13 @@ async function initProducts() {
     });
 
     renderProducts(state.products, pageProducts);
-    setUpAddToCartEvents(pageProducts, state.cart, addToCart);
+    setUpAddToCartEvents(
+      pageProducts,
+      state.cart,
+      addToCart,
+      updateCartCount,
+      countCartItems
+    );
   } catch (error) {
     console.error(error);
   }

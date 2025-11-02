@@ -79,6 +79,22 @@
     align-items: center;
   }
 
+  .nav__links-cart {
+    position: relative;
+    display: flex;
+  }
+
+  .nav__links-cart-count {
+    position: absolute;
+    background-color: red;
+    font-size: 1rem;
+    color: white;
+    top: 0px;
+    right: 0px;
+    border-radius: 100%;
+    margin: 0;
+  }
+
   .nav__search-container {
     max-width: 500px;
   }
