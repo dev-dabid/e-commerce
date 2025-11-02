@@ -1,5 +1,6 @@
 const state = {
   products: [],
+  cart: [],
   filteredProducts: [],
   currentCategory: "all",
 };

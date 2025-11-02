@@ -16,6 +16,9 @@ export function createProductCard(product) {
                    <p>(${product.rating.count})</p>
                  </div>
                </div>
+               <div class="product__card-btn-container">
+                <button class="product__card-btn js-product__card-btn" data-product-id="${product.id}">Add to cart</button>
+              </div>
              </div>
            `;
 
@@ -51,4 +54,13 @@ export function renderProducts(products, container) {
   });
 
   container.appendChild(htmlProducts);
+}
+
+export function setUpAddToCartEvents(container, cart, callback) {
+  container.addEventListener("click", (e) => {
+    if (e.target.classList.contains("js-product__card-btn")) {
+      const productId = e.target.dataset.productId;
+      callback(productId, cart);
+    }
+  });
 }

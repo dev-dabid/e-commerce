@@ -21,3 +21,26 @@ export function filterByCategory(products, filter) {
 
   return unfiltered;
 }
+
+export function addToCart(id, cart) {
+  let matchingItem;
+
+  cart.forEach((item) => {
+    if (Number(id) === item.id) {
+      matchingItem = item;
+    }
+  });
+
+  console.log(matchingItem);
+
+  if (matchingItem) {
+    matchingItem.quantity += 1;
+  } else {
+    cart.push({
+      id: Number(id),
+      quantity: 1,
+    });
+  }
+
+  console.log(cart);
+}
