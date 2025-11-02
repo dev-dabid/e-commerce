@@ -31,8 +31,6 @@ export function addToCart(id, cart) {
     }
   });
 
-  console.log(matchingItem);
-
   if (matchingItem) {
     matchingItem.quantity += 1;
   } else {
