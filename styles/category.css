@@ -18,12 +18,12 @@
 }
 
 .nav__category-button:hover {
-  box-shadow: 3px 3px black;
+  box-shadow: 3px 3px rgba(180, 159, 204, 0.3);
   transform: translateY(-1px);
 }
 
 .nav__category-button:active {
-  box-shadow: 1px 1px black;
+  box-shadow: 1px 1px rgba(180, 159, 204, 0.3);
 }
 
 @media (min-width: 1024px) {
