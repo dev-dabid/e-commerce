@@ -17,7 +17,7 @@ export function createProductCard(product) {
                  </div>
                </div>
                <div class="product__card-btn-container">
-                <button class="product__card-btn js-product__card-btn" data-product-id="${product.id}">Add to cart</button>
+                <button class="product__card-btn js-product__card-btn" data-product-id="${product.id}">Add to Cart</button>
               </div>
              </div>
            `;
