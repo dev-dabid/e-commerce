@@ -18,7 +18,7 @@
 }
 
 .nav__category-button:hover {
-  box-shadow: 3px 3px black;
+  box-shadow: 3px 3px rgba(180, 159, 204, 0.3);
   transform: translateY(-1px);
 }
 
