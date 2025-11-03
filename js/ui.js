@@ -38,8 +38,16 @@ export function renderCategories(products, container) {
 export function setUpCategoryEvents(container, callback) {
   container.addEventListener("click", (e) => {
     if (e.target.tagName === "BUTTON") {
+      const categoryBtn = document.querySelectorAll(".nav__category-button");
+
+      categoryBtn.forEach((btn) => {
+        btn.classList.remove("active");
+      });
+
       const category = e.target.innerText;
       callback(category);
+
+      e.target.classList.toggle("active");
     }
   });
 }

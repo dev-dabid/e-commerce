@@ -17,9 +17,10 @@
   letter-spacing: 0.05rem;
 }
 
-.nav__category-button:hover {
-  box-shadow: 3px 3px rgba(180, 159, 204, 0.3);
+.nav__category-button.active {
+  box-shadow: 4px 4px rgba(180, 159, 204, 0.3);
   transform: translateY(-1px);
+  font-weight: 600;
 }
 
 .nav__category-button:active {
