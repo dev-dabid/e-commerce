@@ -5,6 +5,7 @@ import {
   filterByCategory,
   addToCart,
   countCartItems,
+  searchProductItems,
 } from "./logic.js";
 import {
   renderProducts,
@@ -12,11 +13,16 @@ import {
   setUpCategoryEvents,
   setUpAddToCartEvents,
   updateCartCount,
+  setUpSearchEvent,
 } from "./ui.js";
 
 const url = "https://fakestoreapi.com/products";
 
 const navFilter = document.querySelector(".js-nav__filters");
+
+const navSearch = document.querySelector(".js-nav__search");
+const navSearchBtn = document.querySelector(".js-nav__search-button");
+
 const pageProducts = document.querySelector(".js-page__products");
 
 async function initProducts() {
@@ -30,6 +36,15 @@ async function initProducts() {
       state.filteredProducts = filterByCategory(state.products, category);
 
       renderProducts(state.filteredProducts, pageProducts);
+
+      setUpSearchEvent(navSearch, navSearchBtn, (input) => {
+        state.searchedProducts = searchProductItems(
+          input,
+          state.filteredProducts
+        );
+
+        renderProducts(state.searchedProducts, pageProducts);
+      });
     });
 
     renderProducts(state.products, pageProducts);
@@ -40,6 +55,12 @@ async function initProducts() {
       updateCartCount,
       countCartItems
     );
+
+    setUpSearchEvent(navSearch, navSearchBtn, (input) => {
+      state.searchedProducts = searchProductItems(input, state.products);
+
+      renderProducts(state.searchedProducts, pageProducts);
+    });
   } catch (error) {
     console.error(error);
   }

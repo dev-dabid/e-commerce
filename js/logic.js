@@ -52,3 +52,12 @@ export function countCartItems(cart) {
 
   return itemsCount;
 }
+
+export function searchProductItems(input, products) {
+  let search = products.filter((product) => {
+    const title = product.title.toLowerCase();
+    return title.includes(input);
+  });
+
+  return search;
+}

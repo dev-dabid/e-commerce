@@ -85,3 +85,12 @@ export function updateCartCount(callback, cart) {
 
   countUi.innerText = callback(cart);
 }
+
+export function setUpSearchEvent(searchBar, searchBarBtn, callback) {
+  searchBarBtn.addEventListener("click", (e) => {
+    let input = searchBar.value;
+    callback(input);
+
+    e.preventDefault();
+  });
+}
