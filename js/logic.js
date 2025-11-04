@@ -56,6 +56,7 @@ export function countCartItems(cart) {
 export function searchProductItems(input, products) {
   let search = products.filter((product) => {
     const title = product.title.toLowerCase();
+    input = input.toLowerCase();
     return title.includes(input);
   });
 
