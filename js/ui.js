@@ -101,11 +101,13 @@ export function setUpResetSearchEvent(searchBar, searchResetBtn, callback) {
       searchResetBtn.classList.add("active");
     } else {
       searchResetBtn.classList.remove("active");
+      callback();
     }
   });
 
   searchResetBtn.addEventListener("click", () => {
     searchBar.value = "";
     searchResetBtn.classList.remove("active");
+    callback();
   });
 }

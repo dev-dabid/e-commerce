@@ -45,6 +45,10 @@ async function initProducts() {
           state.filteredProducts
         );
 
+        setUpResetSearchEvent(navSearch, navSearchResetBtn, () => {
+          renderProducts(state.filteredProducts, pageProducts);
+        });
+
         renderProducts(state.searchedProducts, pageProducts);
       });
     });
@@ -64,8 +68,8 @@ async function initProducts() {
       renderProducts(state.searchedProducts, pageProducts);
     });
 
-    setUpResetSearchEvent(navSearch, navSearchResetBtn, (val) => {
-      console.log(val);
+    setUpResetSearchEvent(navSearch, navSearchResetBtn, () => {
+      renderProducts(state.products, pageProducts);
     });
   } catch (error) {
     console.error(error);
