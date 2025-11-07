@@ -64,6 +64,14 @@
   padding-inline: 1rem;
 }
 
+.nav__search-reset {
+  display: none;
+}
+
+.nav__search-reset.active {
+  display: flex;
+}
+
 @media (min-width: 1024px) {
   .nav__content {
     justify-content: space-between;

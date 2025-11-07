@@ -94,3 +94,18 @@ export function setUpSearchEvent(searchBar, searchBarBtn, callback) {
     e.preventDefault();
   });
 }
+
+export function setUpResetSearchEvent(searchBar, searchResetBtn, callback) {
+  searchBar.addEventListener("input", (e) => {
+    if (searchBar.value.trim()) {
+      searchResetBtn.classList.add("active");
+    } else {
+      searchResetBtn.classList.remove("active");
+    }
+  });
+
+  searchResetBtn.addEventListener("click", () => {
+    searchBar.value = "";
+    searchResetBtn.classList.remove("active");
+  });
+}

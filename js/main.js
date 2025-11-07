@@ -14,6 +14,7 @@ import {
   setUpAddToCartEvents,
   updateCartCount,
   setUpSearchEvent,
+  setUpResetSearchEvent,
 } from "./ui.js";
 
 const url = "https://fakestoreapi.com/products";
@@ -22,6 +23,7 @@ const navFilter = document.querySelector(".js-nav__filters");
 
 const navSearch = document.querySelector(".js-nav__search");
 const navSearchBtn = document.querySelector(".js-nav__search-button");
+const navSearchResetBtn = document.querySelector(".js-nav__search-reset");
 
 const pageProducts = document.querySelector(".js-page__products");
 
@@ -60,6 +62,10 @@ async function initProducts() {
       state.searchedProducts = searchProductItems(input, state.products);
 
       renderProducts(state.searchedProducts, pageProducts);
+    });
+
+    setUpResetSearchEvent(navSearch, navSearchResetBtn, (val) => {
+      console.log(val);
     });
   } catch (error) {
     console.error(error);
