@@ -1,4 +1,5 @@
 import state from "./state.js";
+
 import {
   getProducts,
   getUniqueCategories,
@@ -7,6 +8,7 @@ import {
   countCartItems,
   searchProductItems,
 } from "./logic.js";
+
 import {
   renderProducts,
   renderCategories,

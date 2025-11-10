@@ -34,6 +34,7 @@
   display: flex;
   justify-content: center;
   width: 100%;
+  position: relative;
 }
 
 .nav__search-form {
@@ -49,6 +50,7 @@
   margin-right: 0;
   outline: none;
   padding-left: 1rem;
+  padding-right: 3rem;
   line-height: 1.5rem;
   flex-grow: 1;
 }
@@ -66,10 +68,19 @@
 
 .nav__search-reset {
   display: none;
+  position: absolute;
+  right: 90px;
+  top: 9px;
 }
 
 .nav__search-reset.active {
   display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav__search-reset svg {
+  width: 20px;
 }
 
 @media (min-width: 1024px) {
