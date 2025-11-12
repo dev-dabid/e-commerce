@@ -53,12 +53,13 @@ export function countCartItems(cart) {
   return itemsCount;
 }
 
-export function searchProductItems(input, products) {
-  let search = products.filter((product) => {
-    const title = product.title.toLowerCase();
-    input = input.toLowerCase();
-    return title.includes(input);
-  });
-
-  return search;
+export function getVisibleProducts(state) {
+  return state.products
+    .filter(
+      (p) =>
+        state.currentCategory === "all" || p.category === state.currentCategory
+    )
+    .filter((p) =>
+      p.title.toLowerCase().includes(state.searchQuery.toLowerCase())
+    );
 }

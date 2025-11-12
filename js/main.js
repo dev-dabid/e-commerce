@@ -6,7 +6,7 @@ import {
   filterByCategory,
   addToCart,
   countCartItems,
-  searchProductItems,
+  getVisibleProducts,
 } from "./logic.js";
 
 import {
@@ -36,10 +36,11 @@ async function initProducts() {
     state.products = allProducts;
 
     renderCategories(getUniqueCategories(state.products), navFilter);
-    setUpCategoryEvents(navFilter, (category) => {
-      state.filteredProducts = filterByCategory(state.products, category);
 
-      renderProducts(state.filteredProducts, pageProducts);
+    setUpCategoryEvents(navFilter, (category) => {
+      state.currentCategory = category;
+
+      renderProducts(getVisibleProducts(state), pageProducts);
 
       setUpSearchEvent(navSearch, navSearchBtn, (input) => {
         state.searchedProducts = searchProductItems(
@@ -65,9 +66,9 @@ async function initProducts() {
     );
 
     setUpSearchEvent(navSearch, navSearchBtn, (input) => {
-      state.searchedProducts = searchProductItems(input, state.products);
+      state.searchQuery = input;
 
-      renderProducts(state.searchedProducts, pageProducts);
+      renderProducts(getVisibleProducts(state), pageProducts);
     });
 
     setUpResetSearchEvent(navSearch, navSearchResetBtn, () => {

@@ -1,9 +1,8 @@
 const state = {
   products: [],
   cart: [],
-  filteredProducts: [],
-  searchedProducts: [],
   currentCategory: "all",
+  searchQuery: "",
 };
 
 export default state;
