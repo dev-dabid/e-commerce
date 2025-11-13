@@ -41,19 +41,6 @@ async function initProducts() {
       state.currentCategory = category;
 
       renderProducts(getVisibleProducts(state), pageProducts);
-
-      setUpSearchEvent(navSearch, navSearchBtn, (input) => {
-        state.searchedProducts = searchProductItems(
-          input,
-          state.filteredProducts
-        );
-
-        setUpResetSearchEvent(navSearch, navSearchResetBtn, () => {
-          renderProducts(state.filteredProducts, pageProducts);
-        });
-
-        renderProducts(state.searchedProducts, pageProducts);
-      });
     });
 
     renderProducts(state.products, pageProducts);
@@ -72,7 +59,8 @@ async function initProducts() {
     });
 
     setUpResetSearchEvent(navSearch, navSearchResetBtn, () => {
-      renderProducts(state.products, pageProducts);
+      state.searchQuery = "";
+      renderProducts(getVisibleProducts(state), pageProducts);
     });
   } catch (error) {
     console.error(error);
