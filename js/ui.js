@@ -35,7 +35,14 @@ export function renderCategories(products, container) {
   container.innerHTML = htmlCategory;
 }
 
-export function setUpCategoryEvents(container, callback) {
+export function setUpCategoryEvents(container, state, callback) {
+  const children = container.children;
+
+  for (let i = 0; i < children.length; i++) {
+    children[i].innerText === state.currentCategory &&
+      children[i].classList.add("active");
+  }
+
   container.addEventListener("click", (e) => {
     if (e.target.tagName === "BUTTON") {
       const categoryBtn = document.querySelectorAll(".nav__category-button");
@@ -47,7 +54,7 @@ export function setUpCategoryEvents(container, callback) {
       const category = e.target.innerText;
       callback(category);
 
-      e.target.classList.toggle("active");
+      e.target.classList.add("active");
     }
   });
 }

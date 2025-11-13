@@ -36,7 +36,7 @@ async function initProducts() {
 
     renderCategories(getUniqueCategories(state.products), navFilter);
 
-    setUpCategoryEvents(navFilter, (category) => {
+    setUpCategoryEvents(navFilter, state, (category) => {
       state.currentCategory = category;
 
       renderProducts(getVisibleProducts(state), pageProducts);
