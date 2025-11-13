@@ -16,14 +16,6 @@ export function getUniqueCategories(products) {
   return catObj;
 }
 
-export function filterByCategory(products, filter) {
-  const unfiltered = products.filter((product) => {
-    return product.category === filter;
-  });
-
-  return unfiltered;
-}
-
 export function addToCart(id, cart) {
   let matchingItem;
 

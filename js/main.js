@@ -3,7 +3,6 @@ import state from "./state.js";
 import {
   getProducts,
   getUniqueCategories,
-  filterByCategory,
   addToCart,
   countCartItems,
   getVisibleProducts,
