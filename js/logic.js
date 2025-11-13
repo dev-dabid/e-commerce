@@ -7,6 +7,8 @@ export async function getProducts(url) {
 export function getUniqueCategories(products) {
   const catObj = {};
 
+  catObj["all"] = true;
+
   products.forEach((product) => {
     catObj[product.category] = true;
   });
