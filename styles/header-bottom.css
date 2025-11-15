@@ -9,6 +9,21 @@
   padding-block: 0.5rem;
 }
 
+.nav-bottom__categories {
+  position: absolute;
+  top: -184px;
+  display: none;
+  width: 50%;
+}
+
+.nav-bottom__categories.active {
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+  background-color: #f4efea;
+  padding: 1rem;
+}
+
 .nav-bottom__link {
   text-decoration: none;
   display: flex;

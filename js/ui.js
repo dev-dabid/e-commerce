@@ -118,3 +118,9 @@ export function setUpResetSearchEvent(searchBar, searchResetBtn, callback) {
     callback();
   });
 }
+
+export function setUpToggle(toggle, callback) {
+  toggle.addEventListener("click", (e) => {
+    callback(e);
+  });
+}
