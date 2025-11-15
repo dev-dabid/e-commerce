@@ -53,7 +53,7 @@ export function getVisibleProducts(state) {
 
   return state.products.filter((p) => {
     const matchesCategory = cat === "all" || p.category === cat;
-    const matchesSearch = p.title.toLowerCase().includes(search);
+    const matchesSearch = p.title.toLowerCase().includes(search.toLowerCase());
 
     return matchesCategory && matchesSearch;
   });
