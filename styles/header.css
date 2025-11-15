@@ -1,6 +1,10 @@
 .nav {
   background-color: #f4efea;
   display: flex;
+  position: sticky;
+  top: 0px;
+  z-index: 50;
+  width: 100%;
 }
 
 .nav__content {

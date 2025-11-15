@@ -5,5 +5,26 @@
   width: 100%;
   display: flex;
   justify-content: space-around;
-  background-color: red;
+  background-color: #f4efea;
+  padding-block: 0.5rem;
+}
+
+.nav-bottom__link {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #ff4b4b;
+  font-weight: 500;
+}
+
+.nav-bottom__link-logo {
+  height: 20px;
+  color: #ff4b4b;
+}
+
+@media (min-width: 1024px) {
+  .nav-bottom {
+    display: none;
+  }
 }
