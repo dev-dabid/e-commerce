@@ -51,7 +51,7 @@ export function getVisibleProducts(state) {
   const cat = state.currentCategory;
   const search = state.searchQuery;
 
-  state.products.filter((p) => {
+  return state.products.filter((p) => {
     const matchesCategory = cat === "all" || p.category === cat;
     const matchesSearch = p.title.toLowerCase().includes(search);
 
