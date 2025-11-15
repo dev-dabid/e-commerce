@@ -48,12 +48,13 @@ export function countCartItems(cart) {
 }
 
 export function getVisibleProducts(state) {
-  return state.products
-    .filter(
-      (p) =>
-        state.currentCategory === "all" || p.category === state.currentCategory
-    )
-    .filter((p) =>
-      p.title.toLowerCase().includes(state.searchQuery.toLowerCase())
-    );
+  const cat = state.currentCategory;
+  const search = state.searchQuery;
+
+  state.products.filter((p) => {
+    const matchesCategory = cat === "all" || p.category === cat;
+    const matchesSearch = p.title.toLowerCase().includes(search);
+
+    return matchesCategory && matchesSearch;
+  });
 }
