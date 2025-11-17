@@ -7,6 +7,7 @@
   justify-content: space-around;
   background-color: #f4efea;
   padding-block: 0.5rem;
+  z-index: 50;
 }
 
 .nav-bottom__categories {
