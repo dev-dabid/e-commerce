@@ -11,7 +11,7 @@
 
 .nav-bottom__categories {
   position: absolute;
-  top: -184px;
+  bottom: 50px;
   display: none;
   width: 50%;
 }
