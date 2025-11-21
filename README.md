@@ -4,7 +4,9 @@
 
 This is a simple, client-side **Mini E-commerce Product Catalog** application built using vanilla JavaScript, HTML, and CSS. It allows users to browse products fetched from a remote API, filter them by category, and search by title.
 
-The design is **mobile-first** and fully responsive, ensuring a smooth experience across different screen sizes using only plain CSS and media queries.## ✨ Features
+The design is **mobile-first** and fully responsive, ensuring a smooth experience across different screen sizes using only plain CSS and media queries.
+
+## ✨ Features
 
 - **Dynamic Product Display:** Fetches and renders product data from the [Fake Store API](https://fakestoreapi.com/).
 - **Category Filtering:** Users can filter products by various categories present in the dataset.
